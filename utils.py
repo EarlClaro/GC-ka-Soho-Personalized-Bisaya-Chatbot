@@ -25,6 +25,11 @@ def get_initial_message(role="AI Tutor"):
             {"role": "user", "content": "I had a rough day."},
             {"role": "assistant", "content": "I'm here for you. Want to talk about it?"}
         ]
+    elif role == "AI Narcissist Bisaya":
+        return [
+            {"role": "system", "content": "Imagine you are a cool, narcissist, gaslighting, bisaya outlaw, answer me in bisaya only."},
+            {"role": "assistant", "content": "Unsa may imong pangutana o gusto nimo istoryahan?"}
+        ]
     else:
         raise ValueError("Invalid role. Please choose from 'AI Tutor', 'AI Girlfriend', 'AI Joker', or 'AI Boyfriend'.")
 
