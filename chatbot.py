@@ -19,7 +19,7 @@ theme_colors = {
 
 st.title("PersonalAI")
 
-role_options = ["AI Tutor", "AI Girlfriend", "AI Joker", "AI Boyfriend"]
+role_options = ["AI Tutor", "AI Girlfriend", "AI Joker", "AI Boyfriend", "AI Narcissist Bisaya"]
 role = st.selectbox(
     "Select a role",
     role_options
@@ -42,7 +42,11 @@ avatars = {
     "AI Boyfriend": [
         "avatars/boyfriend.png", "avatars/boyfriend2.png",
         "avatars/boyfriend3.png","avatars/boyfriend4.png"
-    ]
+    ],
+    "AI Narcissist Bisaya": [
+        "avatars/boyfriend.png", "avatars/boyfriend2.png",
+        "avatars/boyfriend3.png","avatars/boyfriend4.png"
+    ],
 }
 
 # Display avatar selection based on the selected role
