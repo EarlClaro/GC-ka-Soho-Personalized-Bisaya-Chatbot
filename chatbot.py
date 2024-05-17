@@ -25,18 +25,39 @@ role = st.selectbox(
     role_options
 )
 
+# Define avatar options for each role
 avatars = {
-    "AI Tutor": "avatars/tutor.png",
-    "AI Girlfriend": "avatars/girlfriend.png",
-    "AI Joker": "avatars/joker.gif",
-    "AI Boyfriend": "avatars/boyfriend.png"
+    "AI Tutor": [
+        "avatars/tutor.png", "avatars/tutor2.png",
+        "avatars/tutor3.png", 
+    ],
+    "AI Girlfriend": [
+        "avatars/girlfriend.png", "avatars/girlfriend2.png",
+        "avatars/girlfriend3.png", "avatars/girlfriend4.png"
+    ],
+    "AI Joker": [
+        "avatars/joker.gif", "avatars/joker2.gif",
+        "https://example.com/avatar5.jpg", "https://example.com/avatar6.jpg"
+    ],
+    "AI Boyfriend": [
+        "avatars/boyfriend.png", "avatars/boyfriend2.png",
+        "avatars/boyfriend3.png","avatars/boyfriend4.png"
+    ]
 }
 
-st.subheader(f"{role}:")  # Update subheader dynamically based on the selected role
+# Display avatar selection based on the selected role
+selected_avatar_index = st.radio(
+    f"Select an avatar for {role}",
+    range(len(avatars.get(role, []))),
+    index=0  # Set default index to 0
+)
 
-# Display avatar
-if role in avatars:
-    st.image(avatars[role], width=100)  # Adjust width as needed
+# Display avatar images from the gallery
+selected_avatar = avatars.get(role, [])[selected_avatar_index]
+st.image(selected_avatar, width=100, caption="Selected Avatar")
+
+
+st.subheader(f"{role}:")  # Update subheader dynamically based on the selected role
 
 model = st.selectbox(
     "Select a model",
