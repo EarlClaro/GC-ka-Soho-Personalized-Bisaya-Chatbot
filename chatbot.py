@@ -3,10 +3,19 @@ from streamlit_chat import message
 from utils import get_initial_message, get_chatgpt_response, update_chat
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 import openai
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
+# Define theme colors for each role
+theme_colors = {
+    "AI Tutor": {"background": "#ADD8E6", "text": "black"},
+    "AI Girlfriend": {"background": "#FFC0CB", "text": "black"},
+    "AI Joker": {"background": "#FFD700", "text": "black"},
+    "AI Boyfriend": {"background": "#87CEEB", "text": "black"}
+}
 
 st.title("PersonalAI")
 
@@ -41,9 +50,40 @@ if 'past' not in st.session_state:
 
 query = st.text_input("Query: ", key="input")
 
-if 'messages' not in st.session_state or st.session_state['role'] != role:
+if 'messages' not in st.session_state or st.session_state.get('role') != role:
     st.session_state['messages'] = get_initial_message(role)
     st.session_state['role'] = role
+
+# Set theme colors based on selected role
+role_theme = theme_colors.get(role, {"background": "white", "text": "black"})
+st.markdown(
+    f"""
+    <style>
+        body {{
+            background-color: {role_theme["background"]};
+        }}
+        .stApp {{
+            background-color: {role_theme["background"]};
+        }}
+        .st-df div {{
+            background-color: {role_theme["background"]};
+            color: {role_theme["text"]};
+            font-weight: bold;
+        }}
+        .st-dg div {{
+            background-color: {role_theme["background"]};
+            color: {role_theme["text"]};
+            font-weight: bold;
+        }}
+        .st-e0 div {{
+            background-color: {role_theme["background"]};
+            color: {role_theme["text"]};
+            font-weight: bold;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 if query:
     with st.spinner("generating..."):
@@ -56,7 +96,7 @@ if query:
 
 if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')    
         message(st.session_state["generated"][i], key=str(i))
 
     with st.expander("Show Messages"):
