@@ -29,19 +29,19 @@ role = st.selectbox(
 avatars = {
     "AI Tutor": [
         "avatars/tutor.png", "avatars/tutor2.png",
-        "avatars/tutor3.png", 
+        "avatars/tutor3.png", "avatars/tutor4.png", "avatars/tutor5.png", 
     ],
     "AI Girlfriend": [
         "avatars/girlfriend.png", "avatars/girlfriend2.png",
-        "avatars/girlfriend3.png", "avatars/girlfriend4.png"
+        "avatars/girlfriend3.png", "avatars/girlfriend4.png", "avatars/girlfriend5.png"
     ],
     "AI Joker": [
-        "avatars/joker.gif", "avatars/joker2.gif",
-        "https://example.com/avatar5.jpg", "https://example.com/avatar6.jpg"
+        "avatars/joker.gif", "avatars/joker2.png",
+        "avatars/joker3.png", "avatars/joker4.png","avatars/joker5.png",
     ],
     "AI Boyfriend": [
         "avatars/boyfriend.png", "avatars/boyfriend2.png",
-        "avatars/boyfriend3.png","avatars/boyfriend4.png"
+        "avatars/boyfriend3.png","avatars/boyfriend4.png","avatars/boyfriend5.png"
     ]
 }
 
