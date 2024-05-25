@@ -58,7 +58,8 @@ avatars = {
     "AI Narcissist Bisaya": [
         {"name": "Kyle Gwapo", "image": "avatars/bisaya1.jpg"}, 
         {"name": "Jay Gwapo", "image": "avatars/bisaya2.jpg"},
-        {"name": "Fern Gwapo", "image": "avatars/bisaya3.png"}
+        {"name": "Fern Gwapo", "image": "avatars/bisaya3.png"},
+        {"name": "Pinaka Gwapo", "image": "avatars/bisaya4.png"}
     ],
 }
 
