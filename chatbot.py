@@ -41,11 +41,11 @@ avatars = {
     ],
     "AI Boyfriend": [
         "avatars/boyfriend.png", "avatars/boyfriend2.png",
-        "avatars/boyfriend3.png","avatars/boyfriend4.png"
+        "avatars/boyfriend3.png","avatars/boyfriend4.png","avatars/boyfriend6.png"
     ],
     "AI Narcissist Bisaya": [
-        "avatars/boyfriend.png", "avatars/boyfriend2.png",
-        "avatars/boyfriend3.png","avatars/boyfriend4.png"
+        "avatars/bisaya1.jpg", "avatars/bisaya2.jpg",
+        "avatars/bisaya3.png",
     ],
 }
 
