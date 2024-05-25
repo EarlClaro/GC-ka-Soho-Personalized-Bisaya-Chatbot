@@ -25,41 +25,60 @@ role = st.selectbox(
     role_options
 )
 
-# Define avatar options for each role
 avatars = {
     "AI Tutor": [
-        "avatars/tutor.png", "avatars/tutor2.png",
-        "avatars/tutor3.png", "avatars/tutor4.png", "avatars/tutor5.png", 
+        {"name": "Mark", "image": "avatars/tutor.png"}, 
+        {"name": "R0bot Teacher", "image": "avatars/tutor2.png"},
+        {"name": "AI Simpson", "image": "avatars/tutor3.png"}, 
+        {"name": "ST3vE", "image": "avatars/tutor4.png"}, 
+        {"name": "Lucy 5", "image": "avatars/tutor5.png"}
     ],
     "AI Girlfriend": [
-        "avatars/girlfriend.png", "avatars/girlfriend2.png",
-        "avatars/girlfriend3.png", "avatars/girlfriend4.png", "avatars/girlfriend5.png"
+        {"name": "Makima", "image": "avatars/girlfriend.png"}, 
+        {"name": "Asa Mikata", "image": "avatars/girlfriend2.png"},
+        {"name": "Power", "image": "avatars/girlfriend3.png"}, 
+        {"name": "Himeno", "image": "avatars/girlfriend4.png"}, 
+        {"name": "Dahyun", "image": "avatars/girlfriend5.png"}
     ],
+    # Add entries for other roles similarly
     "AI Joker": [
-        "avatars/joker.gif", "avatars/joker2.png",
-        "avatars/joker3.png", "avatars/joker4.png","avatars/joker5.png",
+        {"name": "Laugh Meme", "image": "avatars/joker.gif"}, 
+        {"name": "Pepe Joker", "image": "avatars/joker2.png"},
+        {"name": "Joker", "image": "avatars/joker3.png"}, 
+        {"name": "Luffy", "image": "avatars/joker4.png"}, 
+        {"name": "Clown Drake", "image": "avatars/joker5.png"}
     ],
     "AI Boyfriend": [
-        "avatars/boyfriend.png", "avatars/boyfriend2.png",
-        "avatars/boyfriend3.png","avatars/boyfriend4.png","avatars/boyfriend6.png"
+        {"name": "Yuji", "image": "avatars/boyfriend.png"}, 
+        {"name": "Denji", "image": "avatars/boyfriend2.png"},
+        {"name": "Korean Oppa", "image": "avatars/boyfriend3.png"}, 
+        {"name": "Daddy", "image": "avatars/boyfriend4.png"}, 
+        {"name": "Sung Jinwoo", "image": "avatars/boyfriend6.png"}
     ],
     "AI Narcissist Bisaya": [
-        "avatars/bisaya1.jpg", "avatars/bisaya2.jpg",
-        "avatars/bisaya3.png",
+        {"name": "Kyle Gwapo", "image": "avatars/bisaya1.jpg"}, 
+        {"name": "Jay Gwapo", "image": "avatars/bisaya2.jpg"},
+        {"name": "Fern Gwapo", "image": "avatars/bisaya3.png"}
     ],
 }
 
+
 # Display avatar selection based on the selected role
+avatars_for_role = avatars.get(role, [])
+avatar_names = [avatar["name"] for avatar in avatars_for_role]
 selected_avatar_index = st.radio(
     f"Select an avatar for {role}",
-    range(len(avatars.get(role, []))),
+    list(range(len(avatars_for_role))),
+    format_func=lambda i: avatar_names[i],  # Display avatar names in radio button
     index=0  # Set default index to 0
 )
 
-# Display avatar images from the gallery
-selected_avatar = avatars.get(role, [])[selected_avatar_index]
-st.image(selected_avatar, width=100, caption="Selected Avatar")
+# Convert selected_avatar_index to integer
+selected_avatar_index = int(selected_avatar_index)
 
+# Display avatar selection based on the selected role
+selected_avatar = avatars.get(role, [])[selected_avatar_index]
+st.image(selected_avatar["image"], width=100, caption=selected_avatar["name"])
 
 st.subheader(f"{role}:")  # Update subheader dynamically based on the selected role
 
